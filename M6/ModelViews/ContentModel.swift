@@ -7,16 +7,37 @@
 
 import Foundation
 import CoreLocation
-import CoreData
 
-class ContentModel : NSObject , CLLocationManagerDelegate, ObservableObject{
+class ContentModel :  NSObject, CLLocationManagerDelegate, ObservableObject{
     
     var locationManager = CLLocationManager()
     
     override init(){
         super.init()
+        
+        locationManager.delegate = self
+        
         locationManager.requestWhenInUseAuthorization()
     }
+ 
     
-    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        
+        if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
+            
+            locationManager.startUpdatingLocation()
+            
+        }
+        else if locationManager.authorizationStatus == .denied {
+            
+            
+        }
+            
+    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        print(locations.first ?? "")
+        
+        locationManager.stopUpdatingLocation()
+    }
 }

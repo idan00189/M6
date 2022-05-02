@@ -28,45 +28,7 @@ struct HomeView: View {
                 }.padding(.horizontal)
                 Divider()
                 
-                ScrollView{
-                    
-                    LazyVStack(pinnedViews:[.sectionHeaders]){
-                        
-                        Section {
-                            ForEach(model.resturants){ r in
-                                Text(r.name ?? "")
-                                Divider()
-                            }
-                        } header: {
-                            ZStack(alignment: .leading){
-                                Rectangle()
-                                    .foregroundColor(.white)
-                                    
-                                Text("Resturants")
-                                    .bold()
-                            }
-                            
-                            
-                        }
-                        Section {
-                            ForEach(model.sights){ s in
-                                Text(s.name ?? "")
-                                Divider()
-                            }
-                        } header: {
-                            ZStack(alignment: .leading){
-                                Rectangle()
-                                    .foregroundColor(.white)
-                                Text("Sights")
-                                    .bold()
-                            }
-                        }
-                        
-                    }
-                    
-                    
-                    
-                }
+                ListView()
                 
             }
         }
@@ -81,5 +43,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(ContentModel())
     }
 }

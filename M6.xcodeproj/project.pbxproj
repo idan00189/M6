@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3EA8193D28205F66004043A6 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8193C28205F66004043A6 /* ListView.swift */; };
 		3EB80153282040B500462AEB /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB80152282040B500462AEB /* Business.swift */; };
 		3EB80155282040EB00462AEB /* BusinessSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB80154282040EB00462AEB /* BusinessSearch.swift */; };
 		3EB8015A2820546E00462AEB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB801592820546E00462AEB /* HomeView.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3EA8193C28205F66004043A6 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		3EB80152282040B500462AEB /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		3EB80154282040EB00462AEB /* BusinessSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSearch.swift; sourceTree = "<group>"; };
 		3EB801592820546E00462AEB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				3EB801592820546E00462AEB /* HomeView.swift */,
+				3EA8193C28205F66004043A6 /* ListView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				3EF057FD281EC5F30019BAAE /* ContentView.swift in Sources */,
 				3EB80153282040B500462AEB /* Business.swift in Sources */,
 				3EF057FB281EC5F30019BAAE /* M6App.swift in Sources */,
+				3EA8193D28205F66004043A6 /* ListView.swift in Sources */,
 				3EB8015A2820546E00462AEB /* HomeView.swift in Sources */,
 				3EB80155282040EB00462AEB /* BusinessSearch.swift in Sources */,
 				3EF0580C281ED4850019BAAE /* ContentModel.swift in Sources */,

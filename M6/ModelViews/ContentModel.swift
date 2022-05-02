@@ -10,9 +10,10 @@ import CoreLocation
 
 class ContentModel :  NSObject, CLLocationManagerDelegate, ObservableObject{
     
-    var locationManager = CLLocationManager()
+    @Published var locationManager = CLLocationManager()
     @Published var resturants = [Business]()
     @Published var sights = [Business]()
+    @Published var authorizationState = CLAuthorizationStatus.notDetermined
     
     override init(){
         super.init()
@@ -25,9 +26,12 @@ class ContentModel :  NSObject, CLLocationManagerDelegate, ObservableObject{
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         
+        authorizationState = locationManager.authorizationStatus
+        
         if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
             
             locationManager.startUpdatingLocation()
+            
             
         }
         else if locationManager.authorizationStatus == .denied {

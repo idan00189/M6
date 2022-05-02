@@ -6,11 +6,25 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct ContentView: View {
+    @EnvironmentObject var model : ContentModel
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        if model.authorizationState ==  .authorizedAlways ||
+            model.authorizationState == .authorizedWhenInUse {
+            //show HomeView
+            HomeView()
+            
+        }
+        else if model.authorizationState == .notDetermined {
+            // show onboarding view
+        }
+        else if model.authorizationState == .denied {
+            //show denied view
+            
+        }
     }
 }
 

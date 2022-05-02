@@ -11,6 +11,8 @@ import CoreLocation
 class ContentModel :  NSObject, CLLocationManagerDelegate, ObservableObject{
     
     var locationManager = CLLocationManager()
+    @Published var resturants = [Business]()
+    @Published var sights = [Business]()
     
     override init(){
         super.init()
@@ -40,7 +42,8 @@ class ContentModel :  NSObject, CLLocationManagerDelegate, ObservableObject{
         
         if userLocation != nil{
             locationManager.stopUpdatingLocation()
-            getBusinesses(category: "Restaurants", location: userLocation!)
+            getBusinesses(category: "arts", location: userLocation!)
+            getBusinesses(category: "restaurants", location: userLocation!)
         }
     }
     
@@ -63,7 +66,28 @@ class ContentModel :  NSObject, CLLocationManagerDelegate, ObservableObject{
             let dataTask = seasson.dataTask(with: request) { data, response, error in
                 
                 if error == nil {
-                    print(response)
+                    do{
+                        let decoder = JSONDecoder()
+                        let result = try decoder.decode(BusinessSearch.self, from: data!)
+                        
+                        DispatchQueue.main.async {
+                            if category == "arts" {
+                                self.sights = result.businesses
+                            }
+                            else if category == "restaurants"{
+                                self.resturants = result.businesses
+                            }
+                        }
+                        
+                        
+                        
+                    }
+                    catch{
+                        print(error)
+                    }
+                    
+                    
+                    
                 }
                 
                 

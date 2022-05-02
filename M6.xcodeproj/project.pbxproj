@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3EB80153282040B500462AEB /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB80152282040B500462AEB /* Business.swift */; };
+		3EB80155282040EB00462AEB /* BusinessSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB80154282040EB00462AEB /* BusinessSearch.swift */; };
 		3EF057FB281EC5F30019BAAE /* M6App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF057FA281EC5F30019BAAE /* M6App.swift */; };
 		3EF057FD281EC5F30019BAAE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF057FC281EC5F30019BAAE /* ContentView.swift */; };
 		3EF057FF281EC5F40019BAAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EF057FE281EC5F40019BAAE /* Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3EB80152282040B500462AEB /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		3EB80154282040EB00462AEB /* BusinessSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSearch.swift; sourceTree = "<group>"; };
 		3EF057F7281EC5F30019BAAE /* M6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = M6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EF057FA281EC5F30019BAAE /* M6App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M6App.swift; sourceTree = "<group>"; };
 		3EF057FC281EC5F30019BAAE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 		3EF05808281ED43A0019BAAE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3EB80152282040B500462AEB /* Business.swift */,
+				3EB80154282040EB00462AEB /* BusinessSearch.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -165,7 +171,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EF057FD281EC5F30019BAAE /* ContentView.swift in Sources */,
+				3EB80153282040B500462AEB /* Business.swift in Sources */,
 				3EF057FB281EC5F30019BAAE /* M6App.swift in Sources */,
+				3EB80155282040EB00462AEB /* BusinessSearch.swift in Sources */,
 				3EF0580C281ED4850019BAAE /* ContentModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

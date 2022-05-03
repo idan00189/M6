@@ -10,13 +10,38 @@ import SwiftUI
 struct ListView: View {
     @EnvironmentObject var model : ContentModel
     var body: some View {
-        ScrollView(showsIndicators: false){
+        NavigationView{
+            VStack{
+                
+                HStack{
+                    Image(systemName: "location.circle.fill")
+                    Text("San Fransisco")
+                    Spacer()
+                    Button {
+                        
+                    } label: {
+                        Text("Switch to Map View")
+                    }
+
+                }.padding(.horizontal)
+                Divider()
+                
+                
+                
+            
+            ScrollView(showsIndicators: false){
             
             LazyVStack(pinnedViews:[.sectionHeaders]){
                 
                 Section {
                     ForEach(model.resturants){ r in
-                        SingleView(business: r)
+                        NavigationLink {
+                            DescriptionView(business: r)
+                        } label: {
+                            SingleView(business: r)
+                        }
+
+                        
                     }
                 } header: {
                     ZStack(alignment: .leading){
@@ -31,7 +56,12 @@ struct ListView: View {
                 }
                 Section {
                     ForEach(model.sights){ s in
-                        SingleView(business: s)
+                        NavigationLink {
+                            DescriptionView(business: s)
+                        } label: {
+                            SingleView(business: s)
+                        }
+
                         Divider()
                     }
                 } header: {
@@ -43,17 +73,16 @@ struct ListView: View {
                     }
                 }
                 
+            }.navigationBarHidden(true)
+            
+            
+            
+        }.foregroundColor(.black)
+                
+            
             }
-            
-            
             
         }
     }
 }
 
-struct ListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ListView()
-            .environmentObject(ContentModel())
-    }
-}

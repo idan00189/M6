@@ -13,24 +13,7 @@ struct HomeView: View {
     var body: some View {
         
         if model.resturants.count != 0 || model.sights.count != 0{
-            VStack{
-                
-                HStack{
-                    Image(systemName: "location.circle.fill")
-                    Text("San Fransisco")
-                    Spacer()
-                    Button {
-                        
-                    } label: {
-                        Text("Switch to Map View")
-                    }
-
-                }.padding(.horizontal)
-                Divider()
-                
-                ListView()
-                
-            }
+            ListView()
         }
          else {
             ProgressView()

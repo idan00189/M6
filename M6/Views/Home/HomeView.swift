@@ -13,7 +13,14 @@ struct HomeView: View {
     var body: some View {
         
         if model.resturants.count != 0 || model.sights.count != 0{
-            ListView()
+            
+            if !model.isMap {
+                ListView()
+            }
+            else{
+                MapView()
+            }
+            
         }
          else {
             ProgressView()

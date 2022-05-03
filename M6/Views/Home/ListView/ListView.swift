@@ -18,7 +18,7 @@ struct ListView: View {
                     Text("San Fransisco")
                     Spacer()
                     Button {
-                        
+                        model.isMap = true
                     } label: {
                         Text("Switch to Map View")
                     }
@@ -79,7 +79,7 @@ struct ListView: View {
             
         }.foregroundColor(.black)
                 
-            
+
             }
             
         }

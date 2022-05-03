@@ -14,6 +14,7 @@ class ContentModel :  NSObject, CLLocationManagerDelegate, ObservableObject{
     @Published var resturants = [Business]()
     @Published var sights = [Business]()
     @Published var authorizationState = CLAuthorizationStatus.notDetermined
+    @Published var isMap = false
     
     override init(){
         super.init()

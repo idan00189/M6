@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E0E7A7D2821DF63002313E6 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0E7A7C2821DF63002313E6 /* MapView.swift */; };
 		3E92A5682821C7CE00CEFEFE /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E92A5672821C7CE00CEFEFE /* DescriptionView.swift */; };
 		3EA8193D28205F66004043A6 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8193C28205F66004043A6 /* ListView.swift */; };
 		3EA819402821A26D004043A6 /* SingleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8193F2821A26D004043A6 /* SingleView.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E0E7A7C2821DF63002313E6 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		3E92A5672821C7CE00CEFEFE /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		3EA8193C28205F66004043A6 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		3EA8193F2821A26D004043A6 /* SingleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleView.swift; sourceTree = "<group>"; };
@@ -46,6 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E0E7A7B2821DF4C002313E6 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				3E0E7A7C2821DF63002313E6 /* MapView.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
 		3EA8193E282198F5004043A6 /* ListView */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				3EB801592820546E00462AEB /* HomeView.swift */,
+				3E0E7A7B2821DF4C002313E6 /* MapView */,
 				3EA8193E282198F5004043A6 /* ListView */,
 			);
 			path = Home;
@@ -221,6 +232,7 @@
 				3EF057FB281EC5F30019BAAE /* M6App.swift in Sources */,
 				3EA8193D28205F66004043A6 /* ListView.swift in Sources */,
 				3EB8015A2820546E00462AEB /* HomeView.swift in Sources */,
+				3E0E7A7D2821DF63002313E6 /* MapView.swift in Sources */,
 				3EB80155282040EB00462AEB /* BusinessSearch.swift in Sources */,
 				3EF0580C281ED4850019BAAE /* ContentModel.swift in Sources */,
 			);

@@ -73,7 +73,16 @@ class ContentModel :  NSObject, CLLocationManagerDelegate, ObservableObject{
                     do{
                         let decoder = JSONDecoder()
                         let result = try decoder.decode(BusinessSearch.self, from: data!)
+                        // Sort businesses
+                        var businesses = result.businesses
+                        businesses.sort { (b1, b2) -> Bool in
+                            return b1.distance ?? 0 < b2.distance ?? 0
+                        }
                         
+                        // Call the get image function of the businesses
+                        for b in businesses {
+                            b.getImageData()
+                        }
                         DispatchQueue.main.async {
                             if category == "arts" {
                                 self.sights = result.businesses

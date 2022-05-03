@@ -10,14 +10,13 @@ import SwiftUI
 struct ListView: View {
     @EnvironmentObject var model : ContentModel
     var body: some View {
-        ScrollView{
+        ScrollView(showsIndicators: false){
             
             LazyVStack(pinnedViews:[.sectionHeaders]){
                 
                 Section {
                     ForEach(model.resturants){ r in
-                        Text(r.name ?? "")
-                        Divider()
+                        SingleView(business: r)
                     }
                 } header: {
                     ZStack(alignment: .leading){
@@ -32,7 +31,7 @@ struct ListView: View {
                 }
                 Section {
                     ForEach(model.sights){ s in
-                        Text(s.name ?? "")
+                        SingleView(business: s)
                         Divider()
                     }
                 } header: {

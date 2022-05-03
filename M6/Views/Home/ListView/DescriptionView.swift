@@ -1,119 +1,133 @@
 //
-//  DescriptionView.swift
+//  BusinessDetail.swift
 //  M6
 //
-//  Created by idan Cohen on 03/05/2022.
 //
 
 import SwiftUI
 
 struct DescriptionView: View {
-    var business : Business
+    
+    var business: Business
+    
     var body: some View {
         
-        VStack{
-            VStack(spacing: 0){
-                // image
-                GeometryReader() { geo in
-                    let uiimage = UIImage(data: business.imageData ?? Data())
-                    Image(uiImage: uiimage ?? UIImage())
+        VStack (alignment: .leading) {
+            
+            VStack (alignment:.leading, spacing:0) {
+                
+                GeometryReader() { geometry in
+                    
+                    // Business image
+                    let uiImage = UIImage(data: business.imageData ?? Data())
+                    Image(uiImage: uiImage ?? UIImage())
                         .resizable()
                         .scaledToFill()
+                        .frame(width: geometry.size.width, height: geometry.size.height)
                         .clipped()
                         
-                        .frame(width: geo.size.width, height: geo.size.height)
-                }.ignoresSafeArea(.all, edges: .top)
-                // open or close
-                ZStack(alignment: .leading){
-                Rectangle()
-                    .foregroundColor(business.isClosed! ? .black : .blue)
-                    .frame( height: 38)
-                    Text(business.isClosed! ? "Close" : "Open")
-                        .bold()
-                        .foregroundColor(.white)
-                        .padding(.horizontal)
                 }
+                .ignoresSafeArea(.all, edges: .top)
                 
                 
-            }
-            Group{
-                VStack(alignment: .leading){
-                    
-                
-            // business name
-                    Text(business.name ?? "").font(.title2)
-                .bold()
-                .padding()
-            // business adress
-            ForEach(business.location?.displayAddress ?? [String]() , id: \.self) { d in
-                Text(d)
-            }.padding(.horizontal)
-            
-            // business rating
-            Image("regular_\(business.rating!)")
-                        .padding()
-            Divider()
-            
-            // business phone
-                    HStack {
-                        Text("Phone: ")
-                            .bold()
-                        Text(String(business.displayPhone ?? ""))
-                        Spacer()
-                        Link(destination: URL(string: "tel:\(business.phone!)")!) {
-                            Text("Call")
-                        }
-                    }.padding()
-            Divider()
-            
-            // business reviews count
-                    HStack {
-                        Text("Reviws: ")
-                            .bold()
-                        Text(String(business.reviewCount ?? 0))
-                        Spacer()
-                        Link(destination: URL(string:business.url!)!) {
-                            Text("Read")
-                        }
-                    }.padding()
-            Divider()
-            
-            //business websiite
-                    HStack {
-                        Text("Website: ")
-                            .bold()
-                        Text(String(business.url ?? ""))
-                            .lineLimit(1)
-                        Spacer()
-                        Link(destination: URL(string:business.url!)!) {
-                            Text("Visit")
-                        }
-                    }.padding()
-                }
-                
-            }
-            Button {
-                
-            } label: {
-                ZStack{
+                // Open / closed indicator
+                ZStack (alignment: .leading) {
                     Rectangle()
-                        .foregroundColor(.blue)
-                        .frame( height: 48)
-                        .cornerRadius(10)
-                    Text("Get Direction")
-                        .foregroundColor(.white)
+                        .frame(height: 36)
+                        .foregroundColor(business.isClosed! ? .gray : .blue)
                     
-                }.padding()
+                    Text(business.isClosed! ? "Closed" : "Open")
+                        .foregroundColor(.white)
+                        .bold()
+                        .padding(.leading)
+                }
                 
             }
             
+            
+            
+            Group {
+                
+                // Business Name
+                Text(business.name!)
+                    .font(.largeTitle)
+                    .padding()
+                
+                // Loop through display address
+                if business.location?.displayAddress != nil {
+                    
+                    ForEach(business.location!.displayAddress!, id: \.self) { displayLine in
+                        Text(displayLine)
+                            .padding(.horizontal)
+                    }
+                }
+                
+                
+                // Rating
+                Image("regular_\(business.rating ?? 0)")
+                    .padding()
+                
+                Divider()
+                
+                // Phone
+                HStack {
+                    Text("Phone:")
+                        .bold()
+                    Text(business.displayPhone ?? "")
+                    Spacer()
+                    Link("Call", destination: URL(string: "tel:\(business.phone ?? "")")!)
+                }
+                .padding()
+                
+                Divider()
+                
+                // Reviews
+                HStack {
+                    Text("Reviews:")
+                        .bold()
+                    Text(String(business.reviewCount ?? 0))
+                    Spacer()
+                    Link("Read", destination: URL(string: "\(business.url ?? "")")!)
+                }
+                .padding()
+                
+                Divider()
+                
+                // Website
+                HStack {
+                    Text("Website:")
+                        .bold()
+                    Text(business.url ?? "")
+                        .lineLimit(1)
+                    Spacer()
+                    Link("Visit", destination: URL(string: "\(business.url ?? "")")!)
+                }
+                .padding()
+                
+                Divider()
+                
+            }
+            
+            // Get directions button
+            Button {
+                // TODO: Show directions
+            } label: {
+                ZStack {
+                    
+                    Rectangle()
+                        .frame(height: 48)
+                        .foregroundColor(.blue)
+                        .cornerRadius(10)
+                    
+                    Text("Get Directions")
+                        .foregroundColor(.white)
+                        .bold()
+                    
+                }
+            }
+            .padding()
 
         }
         
-        
-        
     }
 }
-
-
-
